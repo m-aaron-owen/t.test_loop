@@ -8,7 +8,6 @@ trait_list = c('mass', 'head', 'skull width', 'body', 'tail', 'neck', 'chest', '
 
 # Performs an F-test to compare two variances (var.test), then, depending on the results,
 # performs the appropriate t-test version (either with equal or unequal variances of the two groups)
-
 result_list = lapply(trait_list, FUN = function(trait) {
   if (var.test(male[[trait]], female[[trait]])$p.value < 0.05) {
    t.test(male[[trait]], female[[trait]], var = F)
