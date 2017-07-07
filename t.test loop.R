@@ -11,7 +11,7 @@ trait_list = c('mass', 'head', 'skull width', 'body', 'tail', 'neck', 'chest', '
 result_list = lapply(trait_list, FUN = function(trait) {
   if (var.test(male[[trait]], female[[trait]])$p.value < 0.05) {
    t.test(male[[trait]], female[[trait]], var = F)
-  } else{
+  } else {
    t.test(male[[trait]], female[[trait]], var = T)
   }
 })
@@ -20,7 +20,7 @@ print(result_list)
 
 # A drawback of this loop is that it does not include the names of the traits in the printed list of t-test results
 
-# This loop includes the trait names into the printed list of t-test results
+# This loop includes the trait names into the results list
 result_list <- lapply(trait_list, FUN = function(trait) {
   if (var.test(male[[trait]], female[[trait]])$p.value < 0.05) {
     x = t.test(male[[trait]], female[[trait]], var = F)
